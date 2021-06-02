@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html style="max-height: 50%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin-Panel</title>
+    <link rel="stylesheet" href="assets/css/style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic" rel="stylesheet">    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Shiv Infotech</a>
+        <nav class="navbar navbar-static-top">
+            <a class="navbar-btn sidebar-toggle" id="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar" style="padding-bottom: 3px;"></span>
+            </a>
+        <div class="navbar-right" style="margin: 0.5%;">
+            <div class="topnav" id="myTopnav">
+                <a href="/editProfile" >Edit Profile</a>
+                <a href="/resetPassword">Reset Password</a>
+                <a href="/logout"  onclick="return confirm('Are you sure you want to logout ?')">Logout</a>                
+              </div>
+        </div>
+        </nav>
+    </header>
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+    <aside class="left-side sidebar-offcanvas">
+        <section class="sidebar" id="sidebar-open">
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="assets/images/avatar3.png" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>Hello, Admin</p>
+                    <a href="#"> <i class="fa fa-circle text-success">&nbsp;</i>Online </a>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a href="../dashboard">
+                        <i class="fa fa-dashboard">
+                            <span>Dashboard</span>
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a href="../portfolio">
+                        <i class="fa fa-users">
+                            <span>Add Portfolio</span>
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a href="../contact">
+                        <i class="fa fa-users">
+                        <span>Add Contact</span>
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a href="../subscribe">
+                        <i class="fa fa-users">
+                            <span>Add Subscribers</span>
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a href="../testimonial">
+                        <i class="fa fa-book">
+                            <span>Add Testimonials</span>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        </aside>
+    <script>
+        $(document).ready(function(){
+  
+  $("#sidebar-toggle").click(function() {
+$("#sidebar-open").toggleClass("hideDiv");
+
+        })
+    })
+    </script>
+
+<script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(e) {
+      if (!e.target.matches('.dropbtn')) {
+      var myDropdown = document.getElementById("myDropdown");
+        if (myDropdown.classList.contains('show')) {
+          myDropdown.classList.remove('show');
+        }
+      }
+    }
+    </script>

@@ -1,0 +1,122 @@
+<%- include('partials/header') %> 
+<aside class="right-side">
+    <section class="content-header">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">
+                    <i class="fa fa-dashboard"></i>
+                    Home
+                </a>
+            </li>
+            <li class="active">
+                Add subscribe
+            </li>
+        </ol>
+    </section><hr>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">Add subscribe</h3>
+                    </div>
+                    <% if (typeof message !=='undefined' && message.length> 0) { %>
+             
+                        <div class="alert alert-warning" style="text-align: center; font-size: 17px!important; border-radius: 0%;">
+                            <%= message %> &nbsp; &nbsp; &nbsp;<a href="/subscribe" style="color:#3d9970">&#10006;</a>
+                        </div>
+                    
+                    <% } %>
+                    <form action="/addSubscribe" method="post">
+                        <div class="box-body">
+                           
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" class="form-control" name="subs_email" placeholder="Enter Email">
+                                <% if (typeof error1 !=='undefined' && error1.length> 0) { %>
+                                    <div style="color: red;">
+                                      <%= error1 %>
+                                    </div>
+                                    <% } %>
+                                 </div>
+                           
+                            <div class="box-footer">
+                                <input class="btn btn-primary"  type="submit" style="padding: 5px 10px;
+                                font-size: 18px;" value="Submit">  
+                                  <a href="/subscribe"><input class="btn btn-warning"  type="button" style="padding: 5px 10px;
+                                   font-size: 18px;" value="Cancel">  </a>         
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="box box-info">
+                    <div class="box-header">
+                        <h3 class="box-title">All Project List</h3>
+                        <a href="/subscribe" class="btn btn-danger" id="delete" style="margin: 0 0 0 15px;">Delete</a>
+                    </div>
+               
+
+                <div class="table-responsive">
+                        <table id="example" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Email</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% i=1 %>
+                                <% users.forEach(function(user){ %>
+                                    <tr>
+                        <td><input type="checkbox" class="select" value="<%= user.id %>"></td>
+                        <td><%= user.subs_email %></td>
+                        <td><%= user.createdAt.toLocaleDateString() %></td>
+                        <td>
+                           
+                                <a href="editSubscribe?id=<%= user.id %>" style ="
+                                    width: 60px;"
+                                    class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="deleteSubscribe?id=<%= user.id %>" style ="
+                                        width: 60px;"
+                                        class="btn btn-sm btn-primary">Delete</a>
+                        </td>
+                                    </tr>
+                                    <% i=i+1 %>
+                                    <% }); %> 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+<script>
+    let btnShow= document.getElementById('delete');
+    let checkbox = [];
+
+    btnShow.addEventListener('click', _=>{
+        let check = document.querySelectorAll('input[type="checkbox"]:checked');
+        for(let i=0; i<check.length; i++){
+            checkbox.push(check[i].value)
+        }
+        console.log(check.length)
+        console.log(checkbox)
+        fetch('/subscribe', {
+            method: 'delete',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({id:checkbox})
+        })
+    });
+</script>
+</body>
+</html>

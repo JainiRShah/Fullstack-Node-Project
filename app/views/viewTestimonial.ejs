@@ -1,0 +1,65 @@
+<%- include('partials/header') %> 
+<aside class="right-side">
+    <section class="content-header">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">
+                    <i class="fa fa-dashboard"></i>
+                    Home
+                </a>
+            </li>
+            <li class="active">
+                 Testimonial
+            </li>
+        </ol>
+    </section><hr>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">View Testimonial</h3>
+                    </div>
+   
+                    <form >
+                        <input type="hidden" name="id" value="<%= values.id %>">
+
+                        <div class="box-body">
+                            
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Testimonial Name</label>
+                                <input type="text" class="form-control" name="test_name" value="<%= values.test_name %>" readonly >
+                              
+                                 </div>
+  
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Designation</label>
+                                <input type="text" class="form-control" name="designation" value="<%= values.designation %>"readonly>
+                               
+                                 </div>
+                                 <div class="form-group">
+                                <label for="exampleInputEmail1">Testimonial Description</label>
+                                <textarea class="form-control" maxlength="255" rows="4" cols="20" style="height: 100%!important;" name="test_desc" readonly><%= values.test_desc %></textarea>
+                               
+                                 </div>
+                                 <div class="form-group">
+                                    <label for="exampleInputEmail1">Testimonial image</label>
+                                    <input type="text" class="form-control" name="image" value="<%= values.image %>" readonly >
+                                   
+                                     </div>
+                            <div class="box-footer">
+                                
+                                  <a href="/testimonial"><input class="btn btn-warning"  type="button" style="padding: 5px 10px;
+                                   font-size: 18px;" value="Cancel">  </a>         
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</aside>
+
+</body>
+</html>

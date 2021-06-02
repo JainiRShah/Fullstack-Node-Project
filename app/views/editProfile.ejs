@@ -1,0 +1,75 @@
+
+            <%- include('./partials/header'); %>
+
+            <aside class="right-side" style="padding-top: 10%;">
+                <div class="container">
+                    <div class="row">
+                      <div class="col-lg-1"></div>
+                      <div class="col-lg-8">
+                        <% if (typeof error !=='undefined' && error.length> 0) { %>
+             
+                            <div class="alert alert-warning" style="text-align: center; font-size: 17px!important; border-radius: 0%;">
+                                <%= error %> &nbsp; &nbsp; &nbsp;<a href="/dashboard" style="color:#3d9970">&#10006;</a>
+                            </div>
+                        
+                        <% } %>
+                <form class="cmxform" method="post" action="/updateProfile" enctype="multipart/form-data">
+                   <div class="row">
+                        <div class="col-sm-6 col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label  class="col-md-6 control-label">Username</label>
+
+                                <input id="fname" class="form-control" name="username" type="text"
+                                value="<%= values.username %>" placeholder="Enter Username ">
+                                <% if (typeof error1 !=='undefined' && error1.length> 0) { %>
+                                    <div style="color: red;">
+                                      <%= error1 %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label  class="col-md-6 control-label">Email</label>
+
+                                <input id="email" class="form-control" name="email" type="email"
+                                value="<%= values.email %>" placeholder="Enter Email">
+                                <% if (typeof error2 !=='undefined' && error2.length> 0) { %>
+                                    <div style="color: red;">
+                                      <%= error2 %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                        <div class="form-group">
+                            <label >Uploaded Image</label>
+
+                            <input class="form-control" type="text"  value="<%= values.profileImage %>" readonly>
+                         </div>
+                         </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                <label for="image" class="col-md-12 control-label">Upload Image</label>
+
+                                <input class="form-control" style="height: 70px!important;
+                                padding: 20px!important;" type="file" name="profileImage">
+                           
+                            </div>
+                        </div> 
+                    </div>
+                
+<br>
+                    <input class="btn btn-primary" style="margin: 0% 0% 2% 40%;" type="submit"
+                        value="Submit">
+                  
+                   
+                </form>
+                </div>
+                <div class="col-lg-3"></div>
+            </aside>
+            </div> 
+            </body>
+            </html>

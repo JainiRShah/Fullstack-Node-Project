@@ -1,0 +1,186 @@
+<%- include('partials/header') %> 
+<aside class="right-side">
+    <section class="content-header">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">
+                    <i class="fa fa-dashboard"></i>
+                    Home
+                </a>
+            </li>
+            <li class="active">
+                Add Portfolio
+            </li>
+        </ol>
+    </section><hr>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">Add Portfolio</h3>
+                    </div>
+                    <% if (typeof message !=='undefined' && message.length> 0) { %>
+             
+                        <div class="alert alert-warning" style="text-align: center; font-size: 17px!important; border-radius: 0%;">
+                            <%= message %> &nbsp; &nbsp; &nbsp;<a href="/portfolio" style="color:#3d9970">&#10006;</a>
+                        </div>
+                    
+                    <% } %>
+                    <form action="/addPortfolio" method="post"  enctype="multipart/form-data">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Project Category</label>
+                                <select class="form-control" name="proj_category" >
+                                    <option>APP_Development</option>
+                                    <option>Web_Application</option>
+                                    <option>Window_Application</option>
+                                  </select>
+                                  <% if (typeof error1 !=='undefined' && error1.length> 0) { %>
+                                    <div style="color: red;">
+                                      <%= error1 %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Project Name</label>
+                                <input type="text" class="form-control" name="proj_name" value="<%= values.proj_name %>" placeholder="Enter Project Name" >
+                                <% if (typeof error2 !=='undefined' && error2.length> 0) { %>
+                                    <div style="color: red;">
+                                      <%= error2 %>
+                                    </div>
+                                    <% } %>
+                                 </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Project image</label>
+                                <input type="file" class="form-control" name="proj_image" placeholder="Select image" >
+                                <% if (typeof error3 !=='undefined' && error3.length> 0) { %>
+                                    <div style="color: red;">
+                                      <%= error3 %>
+                                    </div>
+                                    <% } %>
+                                 </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Project Title</label>
+                                <input type="text" class="form-control" name="proj_title" value="<%= values.proj_title %>" placeholder="Enter Title">
+                                <% if (typeof error4 !=='undefined' && error4.length> 0) { %>
+                                    <div style="color: red;">
+                                      <%= error4 %>
+                                    </div>
+                                    <% } %>
+                                 </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Project Website URL</label>
+                                <input type="text" class="form-control" name="proj_website" value="<%= values.proj_website %>" placeholder="Enter Website Link">
+                                <% if (typeof error5 !=='undefined' && error5.length> 0) { %>
+                                    <div style="color: red;">
+                                      <%= error5 %>
+                                    </div>
+                                    <% } %>
+                                 </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Project Date</label>
+                                <input type="date" class="form-control" name="proj_date" value="<%= values.proj_date %>" placeholder="Enter Date">
+                            
+                                <% if (typeof error6 !=='undefined' && error6.length> 0) { %>
+                                    <div style="color: red;">
+                                      <%= error6 %>
+                                    </div>
+                                    <% } %>
+                                </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Project Description</label>
+                                <textarea class="form-control" maxlength="255" rows="4" cols="20" style="height: 100%!important;" name="proj_desc" ><%= values.proj_desc %></textarea>
+                                <% if (typeof error7 !=='undefined' && error7.length> 0) { %>
+                                    <div style="color: red;">
+                                      <%= error7 %>
+                                    </div>
+                                    <% } %>
+                                 </div>
+                            <div class="box-footer">
+                                <input class="btn btn-primary"  type="submit" style="padding: 5px 10px;
+                                font-size: 18px;" value="Submit">  
+                                  <a href="/portfolio"><input class="btn btn-warning"  type="button" style="padding: 5px 10px;
+                                   font-size: 18px;" value="Cancel">  </a>         
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="box box-info">
+                    <div class="box-header">
+                        <h3 class="box-title">All Project List</h3>
+                        <a href="/portfolio" class="btn btn-danger" id="delete" style="margin: 0 0 0 15px;">Delete</a>
+                    </div>
+               
+
+                <div class="table-responsive">
+                        <table id="example" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Project Name</th>
+                                    <th>Webiste</th>
+                                    <th>Category</th>
+                                    <th>Created Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% i=1 %>
+                                        <% users.forEach(function(user){ %>
+                                            <tr>
+                                <td><input type="checkbox" class="select" value="<%= user.id %>"></td>
+                                <td><%= user.proj_name %></td>
+                                <td><%= user.proj_website %></td>
+                                <td><%= user.proj_category %></td>
+                                <td><%= user.proj_date %></td>
+                                <td>
+                                    <a href="viewPortfolio?id=<%= user.id %>" style ="
+                                        width: 60px; "
+                                        class="btn btn-sm btn-primary">View</a>
+                                        <a href="editPortfolio?id=<%= user.id %>" style ="
+                                            width: 60px;"
+                                            class="btn btn-sm btn-primary">Edit</a>
+                                            <a href="deletePortfolio?id=<%= user.id %>" style ="
+                                                width: 60px;"
+                                                class="btn btn-sm btn-primary">Delete</a>
+                                </td>
+                                            </tr>
+                                            <% i=i+1 %>
+                                            <% }); %> 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        let btnShow= document.getElementById('delete');
+        let checkbox = [];
+    
+        btnShow.addEventListener('click', _=>{
+            let check = document.querySelectorAll('input[type="checkbox"]:checked');
+            for(let i=0; i<check.length; i++){
+                checkbox.push(check[i].value)
+            }
+            console.log(check.length)
+            console.log(checkbox)
+            fetch('/portfolio', {
+                method: 'delete',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({id:checkbox})
+            })
+        });
+    </script>
+</aside>
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
+</body>
+</html>

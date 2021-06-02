@@ -1,0 +1,60 @@
+<%- include('partials/header') %> 
+<aside class="right-side">
+    <section class="content-header">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">
+                    <i class="fa fa-dashboard"></i>
+                    Home
+                </a>
+            </li>
+            <li class="active">
+                Add subscribe
+            </li>
+        </ol>
+    </section><hr>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">Add subscribe</h3>
+                    </div>
+                    <% if (typeof message !=='undefined' && message.length> 0) { %>
+             
+                        <div class="alert alert-warning" style="text-align: center; font-size: 17px!important; border-radius: 0%;">
+                            <%= message %> &nbsp; &nbsp; &nbsp;<a href="/subscribe" style="color:#3d9970">&#10006;</a>
+                        </div>
+                    
+                    <% } %>
+                    <form action="/updateSubscribe" method="post">
+                        <input type="hidden" name="id" value="<%= values.id %>">
+
+                        <div class="box-body">
+                           
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" class="form-control" name="subs_email"  value="<%= values.subs_email %>" placeholder="Enter Email">
+                                <% if (typeof error1 !=='undefined' && error1.length> 0) { %>
+                                    <div style="color: red;">
+                                      <%= error1 %>
+                                    </div>
+                                    <% } %>
+                                 </div>
+                           
+                            <div class="box-footer">
+                                <input class="btn btn-primary"  type="submit" style="padding: 5px 10px;
+                                font-size: 18px;" value="Update">  
+                                  <a href="/subscribe"><input class="btn btn-warning"  type="button" style="padding: 5px 10px;
+                                   font-size: 18px;" value="Cancel">  </a>         
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+
+</body>
+</html>

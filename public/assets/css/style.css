@@ -1,0 +1,128 @@
+  .bg-black {
+    background-color: #222222 !important;
+  }
+  html, body {
+    overflow-x: hidden!important;
+    font-family: 'Source Sans Pro', sans-serif!important;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+    background: #f9f9f9;
+  }
+  .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Source Sans Pro', sans-serif!important;
+  }
+ .login {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background: #3d9970;
+    box-shadow: inset 0px -5px 0px rgb(0 0 0 / 20%);
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 30px!important;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 0%!important;
+  }
+  form {
+    display: block;
+    margin-top: 0em;
+  }
+
+  .bg-white{
+      background-color: white;
+  }
+
+  .bg-gray {
+    background-color: #eaeaec !important;
+    padding: 10px 20px;
+}
+.head{
+    margin: 80px auto 0 auto!important;
+}
+  .footer {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+    padding: 10px 20px;
+    background: #fff;
+    color: #444;
+  } 
+  .bg-gray {
+    background-color: #eaeaec !important;
+  }
+   .footer .btn {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 16px;
+  }
+  .text-muted {
+    color: white!important;
+}
+.pass{
+    margin:3%;
+}
+.alert{
+    padding:13px!important;
+ 
+    margin: 0%!important;
+}
+
+.alert-warning {
+    color: #3d9970!important;
+    background-color: white!important;
+    border-color: #faebcc!important;
+}
+ a:hover{
+    text-decoration: none!important;
+    color: #3d9970 !important;
+}
+.btn:hover{
+    color: white!important;
+}
+  .bg-olive {
+    background-color: #3d9970 !important;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .form-box .footer {
+    padding: 20px 30px!important;
+    background: #fff;
+    }
+
+    .mt-5{
+        margin-top: 4.5rem;
+    }
+
+    .mb-5{
+        margin-bottom: 4.5rem
+    }
+
+    .justify-content-center {
+        -webkit-box-pack: center;
+        justify-content: center;
+    }
+
+    .text-center {
+        text-align: center!important;
+    }
+
+    .logo {
+        display: block;
+        line-height: 70px;
+    }
+
+    .p-4 {
+        padding: 2.25rem!important;
+    }
+    .mb-4{
+        margin-bottom: 2.25rem!important;
+    }
+
+    .mb-3{
+        margin-bottom: 1.5rem!important;
+    }

@@ -34,18 +34,18 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Project Category</label>
                                 <select class="form-control" name="proj_category" >
-                                    <%
-                                    var options = ["APP_Development", "Web_Application", "Window_Application" ];
-                                    for ( var i = 0; i < options.length; i++ )
-                                    {
-                                        var isSelected = ( values.proj_category == options[i] ) ? "selected" : "";
-                                    %>  
-                                        <option value="<%=options[i]%>" <%=isSelected %>>
-                                            <%= options[i] %>
+                                
+                                    <option value="<%= results[0].portfolio_category.id %>">
+
+                                        <%= results[0].portfolio_category.p_category %>
+                                    </option>
+                                    <% i=1 %>
+                                    <% categories.forEach(function(category){ %>
+                                        <option  value="<%= category.id %>">
+                                            <%= category.p_category %>
                                         </option>
-                                    <%
-                                    }
-                                    %>
+                                        <% i=i+1 %>
+                                            <% }); %>
                                   </select>
                                   <% if (typeof error1 !=='undefined' && error1.length> 0) { %>
                                     <div style="color: red;">
@@ -64,7 +64,7 @@
                                  </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Project image</label>
-                                <input type="text" class="form-control" name="proj_image" value="<%= values.proj_image %>"" >
+                                <input type="text" class="form-control"  value="<%= images.proj_image %>" >
                                 <input type="file" class="form-control" name="proj_image" placeholder="Select image" >
                                 <% if (typeof error3 !=='undefined' && error3.length> 0) { %>
                                     <div style="color: red;">

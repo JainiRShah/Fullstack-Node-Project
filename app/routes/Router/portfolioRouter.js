@@ -15,4 +15,6 @@ router.get('/viewPortfolio',  authenticate, portfolioController.viewPortfolio);
 router.get('/editPortfolio', authenticate, portfolioController.editPortfolio);
 router.post('/updatePortfolio', authenticate, upload.single("proj_image"),portfolioController.updatePortfolio);
 
+router.post('/updateExcel', authenticate, upload.single("excel"),portfolioController.excelUpload);
+
 module.exports = router;    

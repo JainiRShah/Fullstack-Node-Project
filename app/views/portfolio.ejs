@@ -32,9 +32,16 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Project Category</label>
                                 <select class="form-control" name="proj_category" >
-                                    <option>APP_Development</option>
+                                    <% i=1 %>
+                                    <% categories.forEach(function(category){ %>
+                                        <option  value="<%= category.id %>">
+                                            <%= category.p_category %>
+                                        </option>
+                                        <% i=i+1 %>
+                                            <% }); %>
+                                    <!-- <option>APP_Development</option>
                                     <option>Web_Application</option>
-                                    <option>Window_Application</option>
+                                    <option>Window_Application</option> -->
                                   </select>
                                   <% if (typeof error1 !=='undefined' && error1.length> 0) { %>
                                     <div style="color: red;">
@@ -97,6 +104,7 @@
                                     </div>
                                     <% } %>
                                  </div>
+                               
                             <div class="box-footer">
                                 <input class="btn btn-primary"  type="submit" style="padding: 5px 10px;
                                 font-size: 18px;" value="Submit">  
@@ -105,7 +113,17 @@
                             </div>
                         </div>
                     </form>
+                    <form action="/updateExcel" method="post"  enctype="multipart/form-data">
+                        <div class="form-group">
+                           <label for="exampleInputEmail1">Project image</label>
+                           <input type="file" class="form-control" name="excel" placeholder="Select image" >
+                           
+                            </div>
+                            <input class="btn btn-primary"  type="submit" style="padding: 5px 10px;
+                            font-size: 18px;" value="Submit">  
+                           </form>  
                 </div>
+
                 <div class="box box-info">
                     <div class="box-header">
                         <h3 class="box-title">All Project List</h3>
@@ -132,7 +150,7 @@
                                 <td><input type="checkbox" class="select" value="<%= user.id %>"></td>
                                 <td><%= user.proj_name %></td>
                                 <td><%= user.proj_website %></td>
-                                <td><%= user.proj_category %></td>
+                                <td><%= user.portfolio_category.p_category %></td>
                                 <td><%= user.proj_date %></td>
                                 <td>
                                     <a href="viewPortfolio?id=<%= user.id %>" style ="
@@ -153,9 +171,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+
     </section>
+    </aside>
     <script>
+        alert("hello1")
         let btnShow= document.getElementById('delete');
         let checkbox = [];
     
@@ -175,8 +195,9 @@
             })
         });
     </script>
-</aside>
+
 <script>
+    alert("hello2")
 $(document).ready(function() {
     $('#example').DataTable();
 } );

@@ -4,6 +4,8 @@
 const express = require("express");
 const app = express();
 
+
+global.__basedir = __dirname;
 // helmet => Helmet helps you secure your Express apps by setting various HTTP headers. 
 const helmet = require("helmet");
 app.use(helmet());
@@ -33,7 +35,7 @@ app.use('/', require('./app/routes/route'));
 
 
 app.use(express.static(__dirname + '/public'));
-
+// assets/uploads/image-1622607466487.jpg
 const path = require('path');
 app.set('views',path.join(__dirname,'app/views'));
 app.set('view engine', 'ejs');

@@ -1,13 +1,9 @@
 module.exports = (sequelize, Sequelize) => {
     const Portfolio = sequelize.define("portfolio", {
       proj_category: {
-        type: Sequelize.ENUM,
-        values: ['APP_Development', 'Web_Application', 'Window_Application']
-      },
-      proj_name: {
         type: Sequelize.STRING
       },
-      proj_image: {
+      proj_name: {
         type: Sequelize.STRING
       },
       proj_title: {

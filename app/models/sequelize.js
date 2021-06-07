@@ -17,5 +17,8 @@ db.portfolio = require("../models/portfolio")(sequelize, Sequelize);
 db.contact = require("../models/contact")(sequelize, Sequelize);
 db.subscribe = require("../models/subscribe")(sequelize, Sequelize);
 db.testimonial = require("../models/testimonial")(sequelize, Sequelize);
+db.portfolio_category = require("../models/portfolio_category")(sequelize, Sequelize);
+db.portfolio_image = require("../models/portfolio_image")(sequelize, Sequelize);
+
 
 module.exports = db;
